@@ -21,12 +21,12 @@ const Categories = () => {
 				</div>
 				<div className="border-4 ">
 					<figure>
-						<img src="https://i.ibb.co/nbYfxDG/pexels-dejan-krstevski-1578997.jpg" alt="men" />
+						<img src="https://i.ibb.co/RPcsH4W/pexels-helena-lopes-1049317.jpg" alt="men" />
 					</figure>
 				</div>
 				<div className="border-4 ">
 					<figure>
-						<img src="https://i.ibb.co/nbYfxDG/pexels-dejan-krstevski-1578997.jpg" alt="men" />
+						<img src="https://i.ibb.co/30GHm3N/pexels-r-fera-432059.jpg" alt="men" />
 					</figure>
 				</div>
 				<div className="col-span-2 border-4 ">
