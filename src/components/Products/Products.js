@@ -27,6 +27,17 @@ const Products = () => {
 						<h6>${priceValue}</h6>
 						<input type="range" min="0" max="10000" onChange={handlePriceValue} value={priceValue} className="w-1/2 range range-xs" />
 					</div>
+					<div className="form-control">
+						<h1 className='text-lg font-semibold '>Short by</h1>
+						<label className="flex items-center cursor-pointer">
+							<input type="checkbox" className="checkbox checkbox-xs" />
+							<span className="ml-4">Price(low to High)</span>
+						</label>
+						<label className="flex items-center cursor-pointer">
+							<input type="checkbox" className="checkbox checkbox-xs" />
+							<span className="ml-4 ">Price(High to low)</span>
+						</label>
+					</div>
 				</div>
 				<div className='p-4 basis-3/4'>
 					<h1 className="text-5xl font-bold">Box Office News!</h1>
