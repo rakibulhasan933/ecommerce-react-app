@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Products = () => {
-	const [priceValue, setPriceValue] = useState(null);
+	const [priceValue, setPriceValue] = useState(0);
 
 	const handlePriceValue = (event) => {
 		setPriceValue(event.target.value)
@@ -24,6 +24,7 @@ const Products = () => {
 					</div>
 					<div className="my-6">
 						<h1 className='text-lg font-semibold'>Filter by Price</h1>
+						<h6>${priceValue}</h6>
 						<input type="range" min="0" max="10000" onChange={handlePriceValue} value={priceValue} className="w-1/2 range range-xs" />
 					</div>
 				</div>
