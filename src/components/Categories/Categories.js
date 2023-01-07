@@ -2,7 +2,7 @@ import React from 'react';
 
 const Categories = () => {
 	return (
-		<div style={{ height: `calc(100vh - 50px)` }} className='m-6 bg-slate-100'>
+		<div style={{ height: `calc(100vh - 20px)` }} className='m-6 bg-slate-100'>
 			<div className="grid grid-flow-row-dense grid-cols-4">
 				<div className='relative '>
 					<img className='object-cover w-full h-full' src="https://i.ibb.co/82ZytFc/pexels-pixabay-458766.jpg" alt="men" />
