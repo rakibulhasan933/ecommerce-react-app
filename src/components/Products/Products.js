@@ -5,8 +5,8 @@ const Products = () => {
 		<div className="m-6 hero bg-base-200">
 			<div className="flex flex-col lg:flex-row">
 				<div className='p-4 basis-1/4'>
-					<h1 className='text-lg font-semibold '>Products Categories</h1>
 					<div className="form-control">
+						<h1 className='text-lg font-semibold '>Products Categories</h1>
 						<label className="flex items-center cursor-pointer">
 							<input type="checkbox" className="checkbox checkbox-xs" />
 							<span className="ml-4">Jacket</span>
@@ -15,6 +15,10 @@ const Products = () => {
 							<input type="checkbox" className="checkbox checkbox-xs" />
 							<span className="ml-4 ">T-Shirt</span>
 						</label>
+					</div>
+					<div className="my-6">
+						<h1 className='text-lg font-semibold'>Filter by Price</h1>
+						<input type="range" min="0" max="100" className="w-1/2 range range-xs" />
 					</div>
 				</div>
 				<div className='p-4 basis-3/4'>
