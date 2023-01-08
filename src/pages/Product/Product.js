@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import { BalanceOutlined, FavoriteBorderOutlined } from '@mui/icons-material';
 
 const Product = () => {
 
@@ -32,7 +33,21 @@ const Product = () => {
 						<span className="mr-2">{quantity}</span>
 						<button onClick={() => setQuantity((prev) => (prev + 1))} className='p-1 mr-2 border-2 bg-slate-200' ><AddOutlinedIcon /></button>
 					</div>
-					<button className='p-2 mx-2 my-4 font-medium text-white bg-blue-500 border'><span><AddShoppingCartOutlinedIcon /></span> ADD TO CART</button>
+					<button className='p-2 mx-2 my-4 font-medium text-white bg-blue-500 border cursor-pointer'><span><AddShoppingCartOutlinedIcon /></span> ADD TO CART</button>
+					<div className="flex flex-row p-2 m-3 text-blue-500">
+						<button className='mr-2 text-base font-normal cursor-pointer' ><FavoriteBorderOutlined />ADD TO WISH LIST</button>
+						<button className='text-base font-normal cursor-pointer'> <BalanceOutlined />ADD TO COMPARE</button>
+					</div>
+					<div className="mx-2 my-6">
+						<h6 className='text-sm font-light cursor-pointer'> Vandor: polo</h6>
+						<h6 className='text-sm font-light cursor-pointer'>Products Type: T-shirt</h6>
+						<h6 className='w-full text-sm font-light cursor-pointer'>Tag: t-shirt, shirt</h6>
+					</div>
+					<div className="m-2">
+						<h2 className='my-2 font-medium underline cursor-pointer'>DESCRIPTION</h2>
+						<h2 className='my-2 font-medium underline cursor-pointer'>ADDITIONAL INFORMATION</h2>
+						<h2 className='my-2 font-medium underline cursor-pointer'>FAQ</h2>
+					</div>
 				</div>
 			</div>
 		</div>
