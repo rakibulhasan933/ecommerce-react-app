@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
 const Product = () => {
 
@@ -25,12 +26,13 @@ const Product = () => {
 				<div className="px-2 basis-1/2">
 					<h1 className='m-2 text-2xl font-medium'>Long Sleeve Graphic T-Shirt</h1>
 					<h3 className='m-2 text-xl text-blue-400' >$ 20</h3>
-					<p className='text-base font-normal leading-normal'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia beatae consequatur expedita, magnam reprehenderit ab quibusdam laboriosam, esse veniam natus et nulla deserunt accusamus hic asperiores omnis facilis, officia placeat?</p>
+					<p className='m-2 text-base font-normal leading-normal'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia beatae consequatur expedita, magnam reprehenderit ab quibusdam laboriosam, esse veniam natus et nulla deserunt accusamus hic asperiores omnis facilis, officia placeat?</p>
 					<div className="m-4">
 						<button onClick={() => setQuantity((prev) => (prev === 1 ? 1 : (prev - 1)))} className='p-1 mr-2 border-2 bg-slate-200'><RemoveOutlinedIcon /></button>
 						<span className="mr-2">{quantity}</span>
 						<button onClick={() => setQuantity((prev) => (prev + 1))} className='p-1 mr-2 border-2 bg-slate-200' ><AddOutlinedIcon /></button>
 					</div>
+					<button className='p-2 mx-2 my-4 font-medium text-white bg-blue-500 border'><span><AddShoppingCartOutlinedIcon /></span> ADD TO CART</button>
 				</div>
 			</div>
 		</div>
