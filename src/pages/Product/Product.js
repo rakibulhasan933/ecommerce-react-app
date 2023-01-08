@@ -10,13 +10,18 @@ const Product = () => {
 	];
 
 	return (
-		<div className='flex m-6'>
-			<div className="basis-1/12">
-				<img src={images[0]} alt="men" />
-				<img src={images[1]} alt="men" />
+		<div style={{ height: `calc(100vh - 40px)` }} className='flex m-6'>
+			<div className="flex flex-col gap-4 px-1 basis-1/12">
+				<img className='cursor-pointer' src={images[0]} alt="men" onClick={e => setSelectedImg(0)} />
+				<img className='cursor-pointer' src={images[1]} alt="men" onClick={e => setSelectedImg(1)} />
 			</div>
-			<div className=" basis-11/12">
-				right
+			<div className="flex flex-row mx-4 basis-11/12">
+				<div className="mx-2 basis-1/2">
+					<img className='h-full' src={images[selectedImg]} alt="men" />
+				</div>
+				<div className="px-2 basis-1/2">
+					letter
+				</div>
 			</div>
 		</div>
 	);
