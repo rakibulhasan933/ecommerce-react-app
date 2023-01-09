@@ -39,13 +39,13 @@ const Cart = () => {
 			<div className="flex flex-col m-2">
 				{
 					data.map((item) => (
-						<div className='flex flex-row items-center mb-2'>
+						<div className='flex flex-row items-center mb-2 shadow'>
 							<img className='object-cover w-20 h-24 mr-2' src={item?.img} alt="products" />
 							<div className="flex flex-col mr-4 ">
 								<h1 className='text-base font-normal'>{item?.title}</h1>
 								<h5 className='text-base font-medium text-blue-500'>1 X ${item?.price} </h5>
 							</div>
-							<DeleteOutlined className='text-red-500 cursor-pointer' />
+							<DeleteOutlined className='mx-4 text-6xl text-red-500 cursor-pointer' />
 						</div>
 					))
 				}
