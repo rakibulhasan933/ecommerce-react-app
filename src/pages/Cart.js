@@ -35,15 +35,15 @@ const Cart = () => {
 	];
 	return (
 		<div className='absolute z-40 p-5 bg-white shadow-md right-5 top-20'>
-			<h2>Products in your Cart</h2>
+			<h2 className='m-2 text-xl font-semibold text-center text-orange-400'>Products in your Cart</h2>
 			<div className="flex flex-col m-2">
 				{
 					data.map((item) => (
 						<div className='flex flex-row items-center mb-2'>
 							<img className='object-cover w-20 h-24 mr-2' src={item?.img} alt="products" />
 							<div className="flex flex-col mr-4 ">
-								<h1>{item?.title}</h1>
-								<h5>{item?.price} </h5>
+								<h1 className='text-base font-normal'>{item?.title}</h1>
+								<h5 className='text-base font-medium text-blue-500'>1 X ${item?.price} </h5>
 							</div>
 							<DeleteOutlined className='text-red-500 cursor-pointer' />
 						</div>
@@ -51,7 +51,7 @@ const Cart = () => {
 				}
 			</div>
 			<div className="flex flex-row justify-between m-3">
-				<span className="">TOTAL</span>
+				<span className="text-lg ">TOTAL</span>
 				<span className="">$ 1234</span>
 			</div>
 			<button className=''>PROCEED TO CHECKOUT</button>
