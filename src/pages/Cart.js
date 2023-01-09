@@ -54,8 +54,8 @@ const Cart = () => {
 				<span className="text-lg font-medium">TOTAL</span>
 				<span className="text-lg font-medium text-blue-500">$ 1234</span>
 			</div>
-			<button className=''>PROCEED TO CHECKOUT</button>
-			<h3 className=''>Reset Cart</h3>
+			<button className='flex items-center justify-center w-64 gap-5 p-2 mb-2 font-medium text-white bg-blue-500 border-none'>PROCEED TO CHECKOUT</button>
+			<h3 className='m-2 text-lg font-normal text-red-600 cursor-pointer'>Reset Cart</h3>
 		</div>
 	);
 };
