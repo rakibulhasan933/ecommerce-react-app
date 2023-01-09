@@ -51,8 +51,8 @@ const Cart = () => {
 				}
 			</div>
 			<div className="flex flex-row justify-between m-3">
-				<span className="text-lg ">TOTAL</span>
-				<span className="">$ 1234</span>
+				<span className="text-lg font-medium">TOTAL</span>
+				<span className="text-lg font-medium text-blue-500">$ 1234</span>
 			</div>
 			<button className=''>PROCEED TO CHECKOUT</button>
 			<h3 className=''>Reset Cart</h3>
