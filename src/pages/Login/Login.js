@@ -47,7 +47,7 @@ const Login = () => {
 							<label className="label">
 								{errors.password?.type === 'required' && <span className="text-red-500 label-text-alt">{errors.password.message}</span>}
 								{errors.password?.type === 'minLength' && <span className="text-red-500 label-text-alt">{errors.password.message}</span>}
-								<p className="text-sm cursor-pointer label-text-alt text-cyan-300 text-end">Forget Password ?</p>
+								<p className="text-sm cursor-pointer label-text-alt text-cyan-300 text-end"><Link to='/reset=password'>Forget Password ?</Link> </p>
 							</label>
 						</div>
 						<input className='w-full max-w-xs text-white btn' type="submit" value="Login" />
