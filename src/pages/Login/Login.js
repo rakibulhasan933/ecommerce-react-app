@@ -1,34 +1,60 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+	const { register, handleSubmit, formState: { errors } } = useForm();
+	const onSubmit = data => {
+		console.log(data);
+	}
 	return (
-		<div className="hero min-h-screen bg-base-200">
-			<div className="hero-content flex-col lg:flex-row-reverse">
-				<div className="text-center lg:text-left">
-					<h1 className="text-5xl font-bold">Login now!</h1>
-					<p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-				</div>
-				<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-					<div className="card-body">
-						<div className="form-control">
+		<div className='flex items-center justify-center h-screen'>
+			<div className="shadow-xl card w-96 bg-base-100 ">
+				<div className="card-body">
+					<h2 className="mb-3 text-2xl font-bold text-center">Login</h2>
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<div className="w-full max-w-xs form-control">
 							<label className="label">
 								<span className="label-text">Email</span>
 							</label>
-							<input type="text" placeholder="email" className="input input-bordered" />
-						</div>
-						<div className="form-control">
+							<input type="email" className="w-full max-w-xs input input-bordered" {...register("email", {
+								required: {
+									value: true,
+									message: 'Email is Required'
+								},
+								pattern: {
+									value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+									message: 'Provide a valid Email'
+								}
+							})} />
+							<label className="label">
+								{errors.email?.type === 'required' && <span className="text-red-500 label-text-alt">{errors.email.message}</span>}
+								{errors.email?.type === 'pattern' && <span className="text-red-500 label-text-alt">{errors.email.message}</span>}
+							</label>
 							<label className="label">
 								<span className="label-text">Password</span>
 							</label>
-							<input type="text" placeholder="password" className="input input-bordered" />
+							<input type="password" className="w-full max-w-xs input input-bordered" {...register("password", {
+								required: {
+									value: true,
+									message: 'Password is Required'
+								},
+								minLength: {
+									value: 6,
+									message: 'Must be 6 characters or longer'
+								}
+							})} />
 							<label className="label">
-								<a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+								{errors.password?.type === 'required' && <span className="text-red-500 label-text-alt">{errors.password.message}</span>}
+								{errors.password?.type === 'minLength' && <span className="text-red-500 label-text-alt">{errors.password.message}</span>}
+								<p className="text-sm cursor-pointer label-text-alt text-cyan-300 text-end">Forget Password ?</p>
 							</label>
 						</div>
-						<div className="form-control mt-6">
-							<button className="btn btn-primary">Login</button>
-						</div>
-					</div>
+						<input className='w-full max-w-xs text-white btn' type="submit" value="Login" />
+					</form>
+					<p className='text-center'><small>New to Doctor portal <Link to='/signup' className='text-green-400 '>Create account</Link> </small></p>
+					<div className="divider">OR</div>
+					<button className="mb-2 btn btn-outline">Continue with Google</button>
 				</div>
 			</div>
 		</div>
