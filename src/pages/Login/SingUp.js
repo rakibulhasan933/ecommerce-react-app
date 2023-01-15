@@ -1,12 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-hot-toast';
 
 const SingUp = () => {
+	const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+	const [updateProfile, updating, uError] = useUpdateProfile(auth);
+	const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+
 	const { register, handleSubmit, formState: { errors } } = useForm();
-	const onSubmit = data => {
-		console.log(data);
-	}
+
+	const onSubmit = async (data) => {
+		await createUserWithEmailAndPassword(data.email, data.password);
+		await updateProfile({ displayName: data.name });
+		await sendEmailVerification();
+		toast('Your Registration Successfully, Send email verification user');
+	};
 	return (
 		<div className='flex items-center justify-center h-screen'>
 			<div className="shadow-xl card w-96 bg-base-100 ">
