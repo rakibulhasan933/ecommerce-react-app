@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { toast } from 'react-hot-toast';
 import Loading from '../Shared/Loading';
 
 const SingUp = () => {
