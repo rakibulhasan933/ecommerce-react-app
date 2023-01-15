@@ -19,8 +19,6 @@ const SingUp = () => {
 		await createUserWithEmailAndPassword(data.email, data.password);
 		await updateProfile({ displayName: data.name });
 		await sendEmailVerification();
-		toast('Your Registration Successfully, Send email verification user');
-		console.log(data);
 	};
 
 
@@ -31,7 +29,7 @@ const SingUp = () => {
 		signInError = <p className='mb-2 text-center text-red-500'><small>{error?.message || gError?.message || uError?.message}</small> </p>
 	};
 	if (user || gUser) {
-		console.log(user || gUser);
+
 	};
 	return (
 		<div className='flex items-center justify-center h-screen'>
