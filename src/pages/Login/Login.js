@@ -1,11 +1,26 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
+	const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+	const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const onSubmit = data => {
-		console.log(data);
+		signInWithEmailAndPassword(data.email, data.password);
+	};
+
+	let signInError;
+
+	if (loading || gLoading) {
+		return <Loading />
+	};
+	if (gError || error) {
+		signInError = <p className='mb-2 text-center text-red-500'><small>{error?.message || gError?.message}</small> </p>
 	}
 	return (
 		<div className='flex items-center justify-center h-screen'>
@@ -50,11 +65,12 @@ const Login = () => {
 								<p className="text-sm cursor-pointer label-text-alt text-cyan-300 text-end"><Link to='/reset=password'>Forget Password ?</Link> </p>
 							</label>
 						</div>
+						{signInError}
 						<input className='w-full max-w-xs text-white btn' type="submit" value="Login" />
 					</form>
-					<p className='text-center'><small>New to Doctor portal <Link to='/register' className='text-green-400 '>Create account</Link> </small></p>
+					<p className='text-center'><small>New to walker shopping <Link to='/register' className='text-green-400 '>Create account</Link> </small></p>
 					<div className="divider">OR</div>
-					<button className="mb-2 btn btn-outline">Continue with Google</button>
+					<button onClick={() => signInWithGoogle()} className="mb-2 btn btn-outline">Continue with Google</button>
 				</div>
 			</div>
 		</div>
