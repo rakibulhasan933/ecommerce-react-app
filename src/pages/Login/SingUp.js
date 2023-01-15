@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-hot-toast';
+import Loading from '../Shared/Loading';
 
 const SingUp = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 	const [updateProfile, updating, uError] = useUpdateProfile(auth);
 	const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+	const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+	let signInError;
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -17,6 +20,18 @@ const SingUp = () => {
 		await updateProfile({ displayName: data.name });
 		await sendEmailVerification();
 		toast('Your Registration Successfully, Send email verification user');
+		console.log(data);
+	};
+
+
+	if (loading || gLoading || updating || sending) {
+		return <Loading />
+	};
+	if (gError || error || uError) {
+		signInError = <p className='mb-2 text-center text-red-500'><small>{error?.message || gError?.message || uError?.message}</small> </p>
+	};
+	if (user || gUser) {
+		console.log(user || gUser);
 	};
 	return (
 		<div className='flex items-center justify-center h-screen'>
@@ -72,11 +87,12 @@ const SingUp = () => {
 								{errors.password?.type === 'minLength' && <span className="text-red-500 label-text-alt">{errors.password?.message}</span>}
 							</label>
 						</div>
+						{signInError}
 						<input className='w-full max-w-xs text-white btn' type="submit" value="Sign Up" />
 					</form>
 					<p className='text-center'><small>old to Doctor portal <Link to='/login' className='text-green-400 '>Login</Link> </small></p>
 					<div className="divider">OR</div>
-					<button className="mb-2 btn btn-outline">Continue with Google</button>
+					<button onClick={() => signInWithGoogle()} className="mb-2 btn btn-outline">Continue with Google</button>
 				</div>
 			</div>
 		</div>
