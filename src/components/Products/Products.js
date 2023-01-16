@@ -82,7 +82,7 @@ const Products = () => {
 					</div>
 					<div className="grid h-40 grid-cols-1 gap-4 px-10 md:grid-cols-4">
 						{
-							data.map((item) => <FeatureCard item={item} />)
+							data.map((item) => <FeatureCard key={item.id} item={item} />)
 						}
 					</div>
 				</div>
