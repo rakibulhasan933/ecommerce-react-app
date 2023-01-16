@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from '../../components/Pagination/Pagination';
 import Sidebar from '../../components/Sidebar';
 import ProductsCard from './ProductsCard';
 
@@ -21,6 +22,8 @@ const Products = () => {
 	const IndexOfLastProducts = currentPage * productsPerPage;
 	const IndexOfFirstProducts = IndexOfLastProducts - productsPerPage;
 	const currentProducts = products.slice(IndexOfFirstProducts, IndexOfLastProducts);
+	// Change Page
+	const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
 
 
 	return (
@@ -31,6 +34,7 @@ const Products = () => {
 				</div>
 				<div className='p-2 basis-11/12'>
 					<ProductsCard currentProducts={currentProducts} isLoading={isLoading} />
+					<Pagination productPerPage={productsPerPage} totalProducts={products.length} paginate={paginate} />
 				</div>
 			</div>
 		</div>
