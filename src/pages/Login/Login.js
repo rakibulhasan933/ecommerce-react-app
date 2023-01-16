@@ -22,6 +22,9 @@ const Login = () => {
 	if (gError || error) {
 		signInError = <p className='mb-2 text-center text-red-500'><small>{error?.message || gError?.message}</small> </p>
 	}
+	if (user || gUser) {
+		console.log(user || gUser);
+	}
 	return (
 		<div className='flex items-center justify-center h-screen'>
 			<div className="shadow-xl card w-96 bg-base-100 ">

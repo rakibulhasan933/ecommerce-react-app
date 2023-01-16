@@ -7,7 +7,7 @@ const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setLoading] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [productsPerPage, setProductsPerPage] = useState(12);
+	const [productsPerPage] = useState(12);
 
 	useEffect(() => {
 		setLoading(true);
