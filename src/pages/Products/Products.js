@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FeatureCard from '../FeatureCard/FeatureCard';
 
 const Products = () => {
 
