@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import FeatureCard from '../../components/FeatureCard/FeatureCard';
 import Loading from '../Shared/Loading';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import { Link } from 'react-router-dom';
 
 const FeatureProducts = () => {
 	const [products, setProducts] = useState([]);
@@ -12,7 +14,7 @@ const FeatureProducts = () => {
 			.then(res => res.json())
 			.then(data => {
 				setProducts(data.slice(0, 8));
-				setLoading(false)
+				setLoading(false);
 			});
 	}, []);
 	return (
@@ -22,12 +24,21 @@ const FeatureProducts = () => {
 				<div className="basis-1/2">Today's feather outfits still boast nods to golden-era glamour and vintage boudoir style, but the options are fresh, colorful, seemingly endless, and can even lean casual. Options include shoes dotted with plumes, pants hemmed with quills, feather going-out tops, and of course feathery dresses, too</div>
 			</div>
 			<>{isLoading ? <Loading />
-				: <div className="grid grid-cols-1 gap-4 px-10 md:grid-cols-4">
-					{
-						products.map((item) => <FeatureCard key={item._id} item={item} />)
-					}
-				</div>}
+				:
+				<div>
+					<div className="grid grid-cols-1 gap-4 px-10 md:grid-cols-4">
+						{
+							products.map((item) => <FeatureCard key={item._id} item={item} />)
+						}
+					</div>
+					<div className="flex flex-row items-center justify-center my-2 btn-group">
+						<button className="bg-blue-500 btn"><Link to='/products/1'> SEE MORE<KeyboardArrowDownOutlinedIcon /></Link></button>
+					</div>
+				</div>
+			}
+
 			</>
+
 		</div>
 	);
 };
