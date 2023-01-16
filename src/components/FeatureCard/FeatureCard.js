@@ -2,7 +2,6 @@ import React from 'react';
 
 const FeatureCard = ({ item }) => {
 	const { image, title, isNew, oldPice, price } = item;
-	console.log(image);
 	return (
 		<div className="relative w-full shadow-xl card card-compact bg-base-100 h-80">
 			<figure><img className='object-cover h-64' src={`data:image/png;base64,${image}`} alt="Shoes" /></figure>
