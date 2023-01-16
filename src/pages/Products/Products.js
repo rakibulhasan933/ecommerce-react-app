@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar';
-import Loading from '../Shared/Loading';
 import ProductsCard from './ProductsCard';
 
 const Products = () => {
