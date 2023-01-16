@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar';
 import Loading from '../Shared/Loading';
+import ProductsCard from './ProductsCard';
 
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setLoading] = useState(false);
-	console.log(products);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [productsPerPage, setProductsPerPage] = useState(12);
 
 	useEffect(() => {
 		setLoading(true);
@@ -16,14 +18,20 @@ const Products = () => {
 				setLoading(false);
 			});
 	}, []);
+	// Get Current page
+	const IndexOfLastProducts = currentPage * productsPerPage;
+	const IndexOfFirstProducts = IndexOfLastProducts - productsPerPage;
+	const currentProducts = products.slice(IndexOfFirstProducts, IndexOfLastProducts);
+
+
 	return (
 		<div className="h-screen m-6 bg-slate-100">
 			<div className="flex flex-col lg:flex-row">
 				<div className='p-8 my-8 basis-1/12'>
 					<Sidebar />
 				</div>
-				{isLoading ? <Loading /> : <div className='p-4 basis-11/12'>
-
+				{isLoading ? <Loading /> : <div className='p-2 basis-11/12'>
+					<ProductsCard currentProducts={currentProducts} />
 				</div>}
 			</div>
 		</div>
