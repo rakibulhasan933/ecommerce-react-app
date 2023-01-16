@@ -38,15 +38,25 @@ const Product = () => {
 						<button className='mr-2 text-base font-normal cursor-pointer' ><FavoriteBorderOutlined />ADD TO WISH LIST</button>
 						<button className='text-base font-normal cursor-pointer'> <BalanceOutlined />ADD TO COMPARE</button>
 					</div>
-					<div className="mx-2 my-6">
-						<h6 className='text-sm font-light cursor-pointer'> Vandor: polo</h6>
-						<h6 className='text-sm font-light cursor-pointer'>Products Type: T-shirt</h6>
-						<h6 className='w-full text-sm font-light cursor-pointer'>Tag: t-shirt, shirt</h6>
+					<h2 className='m-2 text-lg font-semibold tracking-tight'>Product Details</h2>
+					<div className="flex flex-row mx-3">
+						<div className="mx-2">
+							<h4 className='text-base font-medium tracking-tight'>Fabric Type</h4>
+							<h4 className='text-base font-medium tracking-tight'>Care Instructions</h4>
+							<h4 className='text-base font-medium tracking-tight'>Origin</h4>
+							<h4 className='text-base font-medium tracking-tight'>Country of Origin</h4>
+						</div>
+						<div className="mx-2 ">
+							<h4 className='text-base font-thin tracking-tight'>98% Polyester, 2% Spandex</h4>
+							<h4 className='text-base font-thin tracking-tight' >Hand Wash Only</h4>
+							<h4 className='text-base font-thin tracking-tight'>Imported</h4>
+							<h4 className='text-base font-thin tracking-tight'>Bangladesh</h4>
+						</div>
 					</div>
+					<hr className='w-full bg-gray-400' />
+					<h2 className='text-base font-medium tracking-tight'>About this Item</h2>
 					<div className="m-2">
-						<h2 className='my-2 font-medium underline cursor-pointer'>DESCRIPTION</h2>
-						<h2 className='my-2 font-medium underline cursor-pointer'>ADDITIONAL INFORMATION</h2>
-						<h2 className='my-2 font-medium underline cursor-pointer'>FAQ</h2>
+
 					</div>
 				</div>
 			</div>
