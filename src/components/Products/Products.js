@@ -39,7 +39,7 @@ const Products = () => {
 	const [priceValue, setPriceValue] = useState(0);
 
 	const handlePriceValue = (event) => {
-		setPriceValue(event.target.value)
+		setPriceValue(event.target.value);
 	};
 
 	return (
