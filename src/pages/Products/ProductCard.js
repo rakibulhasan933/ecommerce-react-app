@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
 				</div>
 				<ul className='flex flex-row gap-2'>
 					<li className='line-through decoration-red-500'> ${oldPice}</li>
-					<li className='text-lg '> ${price}</li>
+					<li className='text-lg to-blue-700'> ${price}</li>
 				</ul>
 
 			</div>
