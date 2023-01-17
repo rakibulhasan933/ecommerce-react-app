@@ -1,9 +1,11 @@
 import { DeleteOutlined } from '@mui/icons-material';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removedToCart, resetCart } from '../../redux/cartReducer';
 
 const Cart = () => {
 	const products = useSelector((state) => state.cart.products);
+	const dispatch = useDispatch();
 
 	const totalPrice = () => {
 		let total = 0;
@@ -25,17 +27,19 @@ const Cart = () => {
 								<h1 className='text-base font-normal'>{item?.title.slice(0, 15)}</h1>
 								<h5 className='text-base font-medium text-blue-500'>{item.quantity}X${item?.price} </h5>
 							</div>
-							<DeleteOutlined className='mx-4 text-6xl text-red-500 cursor-pointer' />
+							<button onClick={() => dispatch(removedToCart(item?.id))}>
+								<DeleteOutlined className='mx-4 text-6xl text-red-500 cursor-pointer' />
+							</button>
 						</div>
 					))
 				}
 			</div>
 			<div className="flex flex-row justify-between m-3">
-				<span className="text-lg font-medium">TOTAL</span>
+				<span className="text-lg font-medium">SUBTOTAL</span>
 				<span className="text-lg font-medium text-blue-500">${totalPrice()}</span>
 			</div>
 			<button className='flex items-center justify-center w-64 gap-5 p-2 mb-2 font-medium text-white bg-blue-500 border-none'>PROCEED TO CHECKOUT</button>
-			<h3 className='m-2 text-lg font-normal text-red-600 cursor-pointer'>Reset Cart</h3>
+			<h3 onClick={() => dispatch(resetCart())} className='m-2 text-lg font-normal text-red-600 cursor-pointer'>Reset Cart</h3>
 		</div>
 	);
 };

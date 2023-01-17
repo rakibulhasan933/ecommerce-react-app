@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartReducer';
 
 const ProductCart = () => {
+	const dispatch = useDispatch();
 
 	const { _id, title, care, color, country, dec, image, image1, oldPice, origin, price, type } = useLoaderData();
 
@@ -17,8 +18,6 @@ const ProductCart = () => {
 	const images = [
 		`data:image/png;base64,${image}`, `data:image/png;base64,${image1}`
 	];
-
-	const dispatch = useDispatch();
 
 	return (
 		<div className='flex m-6'>
