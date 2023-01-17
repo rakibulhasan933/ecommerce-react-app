@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import FeatureCard from '../../components/FeatureCard/FeatureCard';
+import FeatureCard from './FeatureCard';
 import Loading from '../Shared/Loading';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import { Link } from 'react-router-dom';
@@ -32,7 +32,7 @@ const FeatureProducts = () => {
 						}
 					</div>
 					<div className="flex flex-row items-center justify-center my-2 btn-group">
-						<button className="bg-blue-500 btn"><Link to='/products/1'> SEE MORE<KeyboardArrowDownOutlinedIcon /></Link></button>
+						<button className="bg-blue-500 btn"><Link to='/products'> SEE MORE<KeyboardArrowDownOutlinedIcon /></Link></button>
 					</div>
 				</div>
 			}
