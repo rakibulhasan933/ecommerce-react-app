@@ -38,7 +38,7 @@ const Cart = () => {
 				<span className="text-lg font-medium">SUBTOTAL</span>
 				<span className="text-lg font-medium text-blue-500">${totalPrice()}</span>
 			</div>
-			<button className='flex items-center justify-center w-64 gap-5 p-2 mb-2 font-medium text-white bg-blue-500 border-none'>PROCEED TO CHECKOUT</button>
+			<button className='flex items-center justify-center w-full gap-5 p-2 mb-2 font-medium text-white bg-blue-500 border-none'>PROCEED TO CHECKOUT</button>
 			<h3 onClick={() => dispatch(resetCart())} className='m-2 text-lg font-normal text-red-600 cursor-pointer'>Reset Cart</h3>
 		</div>
 	);
