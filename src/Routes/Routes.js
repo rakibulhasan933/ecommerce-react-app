@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layout/Main';
+import ProductCart from '../pages/Cart/ProductCart';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import SingUp from '../pages/Login/SingUp';
@@ -29,6 +30,13 @@ const router = createBrowserRouter([
 				path: '/register',
 				element: <SingUp />
 			},
+			{
+				path: '/products/:id',
+				loader: async ({ params }) => {
+					return fetch(`http://localhost:5000/products/${params.id}`);
+				},
+				element: <ProductCart />
+			}
 		]
 	}
 ]);

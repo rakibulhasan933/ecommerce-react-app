@@ -4,7 +4,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import { BalanceOutlined, FavoriteBorderOutlined } from '@mui/icons-material';
 
-const Product = () => {
+const ProductCart = () => {
 
 	const [selectedImg, setSelectedImg] = useState(0);
 	const [quantity, setQuantity] = useState(1);
@@ -64,4 +64,4 @@ const Product = () => {
 	);
 };
 
-export default Product;
+export default ProductCart;
