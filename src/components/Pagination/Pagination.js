@@ -12,7 +12,7 @@ const Pagination = ({ productPerPage, totalProducts, paginate }) => {
 			<div className="btn-group">
 				{
 					pageNumbers?.map((number) => (
-						<button onClick={() => paginate(number)} className='rounded btn'>{number}</button>
+						<button key={number} onClick={() => paginate(number)} className='rounded btn'>{number}</button>
 					))
 				}
 			</div>

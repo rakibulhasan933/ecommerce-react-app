@@ -3,8 +3,12 @@ import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import { BalanceOutlined, FavoriteBorderOutlined } from '@mui/icons-material';
+import { useLoaderData } from 'react-router-dom';
 
 const ProductCart = () => {
+
+	const product = useLoaderData();
+	console.log(product);
 
 	const [selectedImg, setSelectedImg] = useState(0);
 	const [quantity, setQuantity] = useState(1);

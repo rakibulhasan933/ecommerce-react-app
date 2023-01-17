@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ item }) => {
-	const { image, title, isNew, oldPice, price } = item;
+	const { _id, image, title, isNew, oldPice, price } = item;
 	return (
-		<Link to='/products'>
+		<Link to={`${_id}`}>
 			<div className="relative w-full shadow-xl cursor-pointer card card-compact bg-base-100 h-80">
 				<figure><img className='object-cover h-64' src={`data:image/png;base64,${image}`} alt="Shoes" /></figure>
 				{isNew && <div className="absolute top-0 left-0 p-1 bg-white border">
