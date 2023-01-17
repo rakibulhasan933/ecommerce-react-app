@@ -7,15 +7,13 @@ import { useLoaderData } from 'react-router-dom';
 
 const ProductCart = () => {
 
-	const product = useLoaderData();
-	console.log(product);
+	const { _id, title, care, color, country, dec, image, image1, oldPice, origin, price, type } = useLoaderData();
 
 	const [selectedImg, setSelectedImg] = useState(0);
 	const [quantity, setQuantity] = useState(1);
 
 	const images = [
-		"https://i.ibb.co/GWTyTTf/skirt1.jpg",
-		"https://i.ibb.co/mCx6M6z/pexels-andrea-piacquadio-3772506.jpg"
+		`data:image/png;base64,${image}`, `data:image/png;base64,${image1}`
 	];
 
 	return (
