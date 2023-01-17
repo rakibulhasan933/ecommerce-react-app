@@ -4,6 +4,8 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import { BalanceOutlined, FavoriteBorderOutlined } from '@mui/icons-material';
 import { useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
 
 const ProductCart = () => {
 
@@ -15,6 +17,8 @@ const ProductCart = () => {
 	const images = [
 		`data:image/png;base64,${image}`, `data:image/png;base64,${image1}`
 	];
+
+	const dispatch = useDispatch();
 
 	return (
 		<div className='flex m-6'>
@@ -36,7 +40,13 @@ const ProductCart = () => {
 						<span className="mr-2">{quantity}</span>
 						<button onClick={() => setQuantity((prev) => (prev + 1))} className='p-1 mr-2 border-2 bg-slate-200' ><AddOutlinedIcon /></button>
 					</div>
-					<button className='p-2 mx-2 my-4 font-medium text-white bg-blue-500 border cursor-pointer'><span><AddShoppingCartOutlinedIcon /></span> ADD TO CART</button>
+					<button onClick={() => dispatch(addToCart({
+						id: _id,
+						title,
+						image,
+						quantity,
+						price
+					}))} className='p-2 mx-2 my-4 font-medium text-white bg-blue-500 border cursor-pointer'><AddShoppingCartOutlinedIcon /> ADD TO CART</button>
 					<div className="flex flex-row p-2 m-3 text-blue-500">
 						<button className='mr-2 text-base font-normal tracking-tight cursor-pointer' ><FavoriteBorderOutlined />ADD TO WISH LIST</button>
 						<button className='text-base font-normal tracking-tight cursor-pointer'> <BalanceOutlined />ADD TO COMPARE</button>
