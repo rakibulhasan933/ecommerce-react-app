@@ -1,22 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import FeatureCard from './FeatureCard';
 import Loading from '../Shared/Loading';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const FeatureProducts = () => {
-	const [products, setProducts] = useState([]);
-	const [isLoading, setLoading] = useState(false);
 
-	useEffect(() => {
-		setLoading(true);
-		fetch('http://localhost:5000/products')
-			.then(res => res.json())
-			.then(data => {
-				setProducts(data.slice(0, 8));
-				setLoading(false);
-			});
-	}, []);
+	const { data: products, isLoading } = useQuery({
+		queryKey: ['product'],
+		queryFn: async () => {
+			const res = await fetch('http://localhost:5000/products')
+			const data = await res.json();
+			return data.slice(0, 8);
+		}
+	});
+
+	// useEffect(() => {
+	// 	setLoading(true);
+	// 	fetch('http://localhost:5000/products')
+	// 		.then(res => res.json())
+	// 		.then(data => {
+	// 			setProducts(data.slice(0, 8));
+	// 			setLoading(false);
+	// 		});
+	// }, []);
 	return (
 		<div className='p-6 m-12 bg-base-100'>
 			<div className="flex flex-row py-11">
