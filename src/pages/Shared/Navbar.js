@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import Cart from '../Cart/Cart';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import { useSelector } from 'react-redux';
 
 
 const Navbar = () => {
 	const [user] = useAuthState(auth);
+	const products = useSelector((state) => state.cart.products);
 
 	const logout = () => {
 		signOut(auth);
@@ -48,7 +49,12 @@ const Navbar = () => {
 				</div>
 				<label tabIndex={0} className="ml-1 btn btn-ghost btn-circle">
 					<div onClick={() => setOpen(!open)} className="indicator">
-						<AddShoppingCartOutlinedIcon />
+						<label tabIndex={0} className="btn btn-ghost btn-circle">
+							<div className="indicator">
+								<svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+								<span className="badge badge-sm indicator-item">{products.length}</span>
+							</div>
+						</label>
 					</div>
 				</label>
 				{user?.uid ? <div className="dropdown dropdown-end">
