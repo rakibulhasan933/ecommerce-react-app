@@ -31,12 +31,12 @@ const router = createBrowserRouter([
 				element: <SingUp />
 			},
 			{
-				path: '/products/:id',
+				path: 'products/:id',
 				loader: async ({ params }) => {
 					return fetch(`http://localhost:5000/products/${params.id}`);
 				},
 				element: <ProductCart />
-			}
+			},
 		]
 	}
 ]);
