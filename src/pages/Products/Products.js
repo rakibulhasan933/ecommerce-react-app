@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Pagination from '../../components/Pagination/Pagination';
-import Sidebar from '../../components/Sidebar';
+import Pagination from './Pagination';
+import Sidebar from './Sidebar';
 import ProductsCard from './ProductsCard';
 
 const Products = () => {
