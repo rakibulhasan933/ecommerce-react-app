@@ -24,12 +24,13 @@ const ProductCart = () => {
 			</div>
 			<div className="flex flex-row mx-4 basis-11/12">
 				<div className="mx-2 basis-1/2">
-					<img className='h-3/4' src={images[selectedImg]} alt="men" />
+					<img className='w-full h-3/4' src={images[selectedImg]} alt="men" />
 				</div>
 				<div className="px-2 basis-1/2">
-					<h1 className='m-2 text-2xl font-medium tracking-tight'>Long Sleeve Graphic T-Shirt</h1>
-					<h3 className='m-2 text-xl text-blue-400' >$ 20</h3>
-					<h3 className='m-1 text-base font-medium tracking-tight'>Color : Black</h3>
+					<h1 className='m-2 text-2xl font-medium tracking-tighter'>{title}</h1>
+					<h3 className='m-2 font-medium line-through decoration-red-500'>$ {oldPice}</h3>
+					<h3 className='m-2 text-xl font-semibold text-blue-400'>$ {price}</h3>
+					<h3 className='m-1 text-base font-medium tracking-tight'>Color : {color}</h3>
 					<div className="m-4">
 						<button onClick={() => setQuantity((prev) => (prev === 1 ? 1 : (prev - 1)))} className='p-1 mr-2 border-2 bg-slate-200'><RemoveOutlinedIcon /></button>
 						<span className="mr-2">{quantity}</span>
@@ -49,16 +50,16 @@ const ProductCart = () => {
 							<h4 className='text-base font-medium tracking-tight'>Country of Origin</h4>
 						</div>
 						<div className="mx-2 ">
-							<h4 className='text-base font-thin tracking-tight'>98% Polyester, 2% Spandex</h4>
-							<h4 className='text-base font-thin tracking-tight' >Hand Wash Only</h4>
-							<h4 className='text-base font-thin tracking-tight'>Imported</h4>
-							<h4 className='text-base font-thin tracking-tight'>Bangladesh</h4>
+							<h4 className='text-base font-thin tracking-tight'>{type}</h4>
+							<h4 className='text-base font-thin tracking-tight' >{care}</h4>
+							<h4 className='text-base font-thin tracking-tight'>{origin}</h4>
+							<h4 className='text-base font-thin tracking-tight'>{country}</h4>
 						</div>
 					</div>
 					<hr className='w-full bg-gray-600' />
 					<h2 className='m-2 text-lg font-medium tracking-tight'>About this Item</h2>
 					<div className="m-2">
-						<p className='font-normal tracking-tighter lowercase'>BREAKING FASHION BOUNDARIES SINCE 2007: [BLANKYNYC] exploded onto the fashion scene with a ramped up urban attitude and stripped-down irreverent edge, creating approachable clothing and obsession-worthy fits, fabrics, and designs without sacrificing quality</p>
+						<p className='font-normal tracking-tighter lowercase'>{dec}</p>
 					</div>
 				</div>
 			</div>
